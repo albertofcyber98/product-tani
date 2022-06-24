@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="asset/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">  
+    <link rel="stylesheet" href="asset/aos/css/aos.css">  
+    <title>Step 2</title>
+</head>
+<body class="container">
+    <main class="step-2">
+        <section class="step-bar d-flex">
+            <div class="row mx-auto">
+                <div>
+                    <img src="asset/img/check.png" class="img-check" alt="">
+                    <img src="asset/img/line.png" class="img-line" alt="">
+                    <img src="asset/img/check.png" class="img-check" alt="">
+                    <img src="asset/img/line.png" class="img-line" alt="">
+                    <img src="asset/img/uncheck.png" class="img-check" alt="">                    
+                </div>
+            </div>
+        </section>
+        <section class="row justify-content-center">
+            <div class="col-10 col-sm-10 col-md-8 col-lg-6 col-xl-5 ">
+                <div class="card-product" data-aos="zoom-in-up" data-aos-duration="1000">
+                    <div>
+                        <label for="alamat">Alamat</label>
+                    </div>
+                    <div class="mt-2">
+                        <textarea name="alamat" id="alamat" class="form-control col-alamat" cols="30" rows="5"></textarea>
+                    </div>
+                    <div class="mt-4">
+                        <label for="kota">Kota</label>
+                    </div>
+                    <div class="mt-2">
+                        <input type="text" name="kota" class="form-control" id="kota">
+                    </div>
+                    <div class="mt-4">
+                        <label for="provinsi">Provinsi</label>
+                    </div>
+                    <div class="mt-2">
+                        <input type="text" name="provinsi" class="form-control" id="provinsi">
+                    </div>
+                    <div class="mt-4">
+                        <label for="kode_pos">Kode Pos</label>
+                    </div>
+                    <div class="mt-2">
+                        <input type="text" name="kode_pos" class="form-control" id="kode_pos">
+                    </div>
+                    <div class="mt-4">
+                        <label for="bukti_pembayaran">Bukti Transfer</label>
+                    </div>
+                    <div class="mt-2 mb-3">
+                        <input type="file" name="bukti_pembayaran" class="form-control" id="bukti_pembayaran">
+                    </div>
+                </div>
+                <div class="btn-finish-step-2 text-center" data-aos="zoom-in-up" data-aos-duration="1000">
+                    <a href="checkout_step_3.html">Finish</a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="asset/bootstrap/js/bootstrap.min.js"></script>
+    <script src="asset/aos/js/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
