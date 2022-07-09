@@ -21,6 +21,7 @@ body{
     background-color: #09824B;
     font-family: 'Poppins';
     font-size: 18px;
+    text-decoration: none;
     padding: 8px 30px !important;
     border-radius: 4px;
     margin-left: 30px;
@@ -275,14 +276,16 @@ footer .copyright{
 }
 .detail-product .detail-checkout h4{
     padding-top: 25px;
+    font-size: 22px;
     font-weight: 600;
 }
 .detail-product .detail-checkout p{
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 300;
 }
 .detail-product .detail-checkout .stock{
     color: #FEA319;
+    font-weight: 500;
 }
 .detail-product .detail-checkout h3{
     margin-top: 15px;
@@ -295,7 +298,7 @@ footer .copyright{
 }
 .detail-product .detail-checkout .quest{
     color: #C4C4C4;
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 15px;
 }
 .detail-product .detail-checkout .btn-minus{
@@ -325,6 +328,7 @@ footer .copyright{
     padding: 6px;
     font-size: 18px;
     font-weight: 500;
+    width: 150px;
     border: 0px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
 }
@@ -588,4 +592,179 @@ footer .copyright{
 }
 .step-3 .btn-finish-step-3 a:hover{
     background-color: #32a572;
+}
+
+/* Profile */
+.profil-page{
+    margin-bottom: 120px;
+}
+.profil-page .btn-save{
+    border: none;
+    background-color: #09824B;
+    color: white;
+    padding: 12px 70px;
+    border-radius: 4px;
+    transition: 0.5s all;
+    box-shadow: 1px 1px 10px #09824B;
+}
+.profil-page .btn-save:hover{
+    background-color: #32a572;
+}
+.profil-page .tabel-riwayat{
+    margin-top: 120px;
+}
+.profil-page .tabel-riwayat h1{
+    font-size: 28px;
+    margin-bottom: 26px;
+}
+.profil-page .tabel-riwayat .table-transaksi thead tr{
+    background-color: #fcbb58;
+}
+.profil-page .tabel-riwayat .table-transaksi thead tr th{
+    color: #04351F;
+    font-weight: 600;
+}
+.profil-page .card-profile-page .img-camera{
+    opacity: 0;
+    transition: 0.5s all;
+}
+.profil-page .card-profile-page .img-camera:hover{
+    opacity: 100;
+    cursor: pointer;
+}
+.profil-page .card-profile-page{
+    margin-top: 80px;
+    padding-bottom: 80px;
+}
+
+/* Login */
+
+.background-login{
+    background-color: rgba(9, 130, 75, 0.1);
+    margin-top: 40px;
+    overflow-x: hidden;
+}
+.background-login main .card-login{
+    margin-top: 30px;
+    background-color: white;
+    box-shadow: 1px 1px 10px #000 1.5;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 5px;
+}
+.background-login main .card-login h1{
+    font-size: 26px;
+    padding-top: 30px;
+}
+.background-login main .card-login p{
+    font-size: 15px;
+    font-weight: 200;
+    margin-bottom: 30px;
+}
+.background-login main .card-login a{
+    text-decoration: none;
+    color: white;
+    background-color: #09824B;
+    display: block;
+    padding: 12px 0px;
+    border-radius: 5px;
+    font-size: 16px !important;    
+    box-shadow: 1px 1px 10px #09824B;
+    transition: 0.5s all;
+}
+.background-login main .card-login a:hover{
+    background-color: #32a572;
+}
+.background-login main .card-login .btn-sign-in{
+    padding-bottom: 50px;
+    padding-top: 40px;
+}
+.background-login .card-login .input-login h5{
+    color: #04351F;
+    font-size: 16px;
+}
+.background-login .card-login .input-login input{
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    display: block;
+    border: 2px solid #C4C4C4;
+    border-radius: 5px;
+    font-weight: 300;
+    width: 100%;
+}
+.background-login main .link-signup{
+    margin-top: 30px;
+    font-weight: 300 !important;
+}
+.background-login .link-signup a{
+ text-decoration: none;
+ color: #04351F;
+ font-weight: 500;
+}
+
+/* Register */
+
+.background-register{
+    background-color: rgba(9, 130, 75, 0.1);
+    margin-top: 40px;
+    overflow-x: hidden;
+}
+.background-register main .card-login{
+    margin-top: 30px;
+    background-color: white;
+    box-shadow: 1px 1px 10px #000 1.5;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 5px;
+}
+.background-register main .card-login h1{
+    font-size: 26px;
+    padding-top: 30px;
+}
+.background-register main .card-login p{
+    font-size: 15px;
+    font-weight: 200;
+    margin-bottom: 30px;
+}
+.background-register main .card-login a{
+    text-decoration: none;
+    color: white;
+    background-color: #09824B;
+    display: block;
+    padding: 12px 0px;
+    border-radius: 5px;
+    font-size: 16px !important;    
+    box-shadow: 1px 1px 10px #09824B;
+    transition: 0.5s all;
+}
+.background-register main .card-login a:hover{
+    background-color: #32a572;
+}
+.background-register main .card-login .btn-sign-in{
+    padding-bottom: 50px;
+    padding-top: 40px;
+}
+.background-register .card-login .input-login h5{
+    color: #04351F;
+    font-size: 16px;
+}
+.background-register .card-login .input-login input{
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    display: block;
+    border: 2px solid #C4C4C4;
+    border-radius: 5px;
+    font-weight: 300;
+    width: 100%;
+}
+.background-register main .link-signup{
+    margin-top: 30px;
+    font-weight: 300 !important;
+}
+.background-register .link-signup a{
+ text-decoration: none;
+ color: #04351F;
+ font-weight: 500;
 }
