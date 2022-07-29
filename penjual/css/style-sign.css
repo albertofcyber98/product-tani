@@ -1,0 +1,135 @@
+/* Login */
+
+.background-login{
+    background-color: rgba(9, 130, 75, 0.1);
+    margin-top: 40px;
+    overflow-x: hidden;
+  }
+  .background-login main .card-login{
+    margin-top: 30px;
+    background-color: white;
+    box-shadow: 1px 1px 10px #000 1.5;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 5px;
+  }
+  .background-login main .card-login h1{
+    font-size: 26px;
+    padding-top: 30px;
+  }
+  .background-login main .card-login p{
+    font-size: 15px;
+    font-weight: 200;
+    margin-bottom: 30px;
+  }
+  .background-login main .card-login .btn-signin{
+    border: none;
+    color: white;
+    background-color: #09824B;
+    display: block;
+    width: 100%;
+    padding: 12px 0px;
+    border-radius: 5px;
+    font-size: 16px !important;    
+    box-shadow: 1px 1px 10px #09824B;
+    transition: 0.5s all;
+  }
+  .background-login main .card-login .btn-signin:hover{
+    background-color: #32a572;
+  }
+  .background-login main .card-login .btn-sign-in{
+    padding-bottom: 50px;
+    padding-top: 40px;
+  }
+  .background-login .card-login .input-login h5{
+    color: #04351F;
+    font-size: 16px;
+  }
+  .background-login .card-login .input-login input{
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    display: block;
+    border: 2px solid #C4C4C4;
+    border-radius: 5px;
+    font-weight: 400;
+        color: #04351F;
+    width: 100%;
+  }
+  .background-login main .link-signup{
+    margin-top: 30px;
+    font-weight: 300 !important;
+  }
+  .background-login .link-signup a{
+  text-decoration: none;
+  color: #04351F;
+  font-weight: 500;
+  }
+  
+  /* Register */
+  
+  .background-register{
+    background-color: rgba(9, 130, 75, 0.1);
+    margin-top: 40px;
+    overflow-x: hidden;
+  }
+  .background-register main .card-login{
+    margin-top: 30px;
+    background-color: white;
+    box-shadow: 1px 1px 10px #000 1.5;
+    padding-left: 50px;
+    padding-right: 50px;
+    border-radius: 5px;
+  }
+  .background-register main .card-login h1{
+    font-size: 26px;
+    padding-top: 30px;
+  }
+  .background-register main .card-login p{
+    font-size: 15px;
+    font-weight: 200;
+    margin-bottom: 30px;
+  }
+  .background-register main .card-login .btn-signup{
+    border: none;
+    color: white;
+    display: block;
+    width: 100%;
+    background-color: #09824B;
+    padding: 12px 0px;
+    border-radius: 5px;
+    font-size: 16px !important;    
+    box-shadow: 1px 1px 10px #09824B;
+    transition: 0.5s all;
+  }
+  .background-register main .card-login .btn-signup:hover{
+    background-color: #32a572;
+  }
+  .background-register main .card-login .btn-sign-in{
+    padding-bottom: 50px;
+    padding-top: 20px;
+  }
+  .background-register .card-login .input-login h5{
+    color: #04351F;
+    font-size: 16px;
+  }
+  .background-register .card-login .input-login input{
+    padding-top: 10px;
+    padding-left: 15px;
+    padding-bottom: 10px;
+    display: block;
+    border: 2px solid #C4C4C4;
+    border-radius: 5px;
+    font-weight: 400;
+        color: #04351F;
+    width: 100%;
+  }
+  .background-register main .link-signup{
+    margin-top: 30px;
+    font-weight: 300 !important;
+  }
+  .background-register .link-signup a{
+  text-decoration: none;
+  color: #04351F;
+  font-weight: 500;
+  }

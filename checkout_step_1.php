@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="asset/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">    
-    <link rel="stylesheet" href="asset/aos/css/aos.css">
+    <?php
+    require './views/link.php'
+    ?>
     <title>Step 1</title>
 </head>
+
 <body class="container">
     <main class="step-1">
         <section class="step-bar d-flex">
@@ -18,7 +20,7 @@
                     <img src="asset/img/line.png" class="img-line" alt="">
                     <img src="asset/img/uncheck.png" class="img-check" alt="">
                     <img src="asset/img/line.png" class="img-line" alt="">
-                    <img src="asset/img/uncheck.png" class="img-check" alt="">                    
+                    <img src="asset/img/uncheck.png" class="img-check" alt="">
                 </div>
             </div>
         </section>
@@ -73,23 +75,22 @@
                 </div>
                 <div class="row mt-4">
                     <div class="col">
-                        <div class="btn-cancel-step-1 text-center" data-aos="zoom-in-up" data-aos-duration="1000">
-                            <a href="produk.html">Cancel</a>
+                        <div class="btn-cancel-step-1 text-center">
+                            <a href="produk.php">Cancel</a>
                         </div>
                     </div>
                     <div class="col">
-                        <div class="btn-paid-step-1 text-center" data-aos="zoom-in-up" data-aos-duration="1000">
-                            <a href="checkout_step_2.html">Paid</a>
+                        <div class="btn-paid-step-1 text-center">
+                            <a href="checkout_step_2.php">Paid</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <script src="asset/bootstrap/js/bootstrap.min.js"></script>
-    <script src="asset/aos/js/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+    <?php
+    require './views/script.php';
+    ?>
 </body>
+
 </html>

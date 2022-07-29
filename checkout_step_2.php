@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="asset/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">  
-    <link rel="stylesheet" href="asset/aos/css/aos.css">  
+    <?php
+    require './views/link.php';
+    ?>
     <title>Step 2</title>
 </head>
+
 <body class="container">
     <main class="step-2">
         <section class="step-bar d-flex">
@@ -18,18 +20,26 @@
                     <img src="asset/img/line.png" class="img-line" alt="">
                     <img src="asset/img/check.png" class="img-check" alt="">
                     <img src="asset/img/line.png" class="img-line" alt="">
-                    <img src="asset/img/uncheck.png" class="img-check" alt="">                    
+                    <img src="asset/img/uncheck.png" class="img-check" alt="">
                 </div>
             </div>
         </section>
         <section class="row justify-content-center">
-            <div class="col-10 col-sm-10 col-md-8 col-lg-6 col-xl-5 "  data-aos="zoom-in-up" data-aos-duration="1000">
+            <div class="col-10 col-sm-10 col-md-8 col-lg-6 col-xl-5 " data-aos="zoom-in-up" data-aos-duration="1000">
                 <div class="card-product">
                     <div>
                         <label for="alamat">Alamat</label>
                     </div>
                     <div class="mt-2">
                         <textarea name="alamat" id="alamat" class="form-control col-alamat" cols="30" rows="5"></textarea>
+                    </div>
+                    <div>
+                        <label for="desa">Desa</label>
+                    </div>
+                    <div class="mt-2">
+                        <select name="desa" id="desa">
+                            <option value=""></option>
+                        </select>
                     </div>
                     <div class="mt-4">
                         <label for="nama_pengirim">Nama Pengirim</label>
@@ -51,15 +61,14 @@
                     </div>
                 </div>
                 <div class="btn-finish-step-2 text-center">
-                    <a href="checkout_step_3.html">Finish</a>
+                    <a href="checkout_step_3.php">Finish</a>
                 </div>
             </div>
         </section>
     </main>
-    <script src="asset/bootstrap/js/bootstrap.min.js"></script>
-    <script src="asset/aos/js/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+    <?php
+    require './views/script.php'
+    ?>
 </body>
+
 </html>

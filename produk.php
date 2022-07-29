@@ -1,41 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="asset/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="asset/aos/css/aos.css">
+    <?php
+    require './views/link.php';
+    ?>
     <title>Produk</title>
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-nav">
-        <div class="container py-1">
-            <a class="navbar-brand text-brand" href="#">
-                <img src="asset/img/logo.png" alt="logo" class="img-fluid" width="160px">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link custom-menu-nav" aria-current="page" href="index.html">Beranda</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-menu-nav" href="produk.html">Produk</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link custom-menu-nav" href="#">Testimoni</a>
-                    </li>
-                    <li class="nav-item mt-2">
-                        <a class="btn-custom-menu-nav" href="#">Login</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php
+    require './views/navbar.php';
+    ?>
     <main class="container">
         <section class="product">
             <div class="title-product" data-aos="zoom-in-up" data-aos-duration="1000">
@@ -62,9 +41,9 @@
                             </div>
                             <div class="col-4 col-lg2 justify-content-center">
                                 <div class="btn-buy-profile">
-                                    <a href="detail_produk.html">Beli</a>
+                                    <a href="detail_produk.php">Beli</a>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -89,7 +68,7 @@
                                 <div class="btn-buy-profile">
                                     <a href="">Beli</a>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -114,7 +93,7 @@
                                 <div class="btn-buy-profile">
                                     <a href="">Beli</a>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -139,7 +118,7 @@
                                 <div class="btn-buy-profile">
                                     <a href="">Beli</a>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -164,7 +143,7 @@
                                 <div class="btn-buy-profile">
                                     <a href="detail_produk.html">Beli</a>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -189,7 +168,7 @@
                                 <div class="btn-buy-profile">
                                     <a href="">Beli</a>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -214,7 +193,7 @@
                                 <div class="btn-buy-profile">
                                     <a href="">Beli</a>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -239,7 +218,7 @@
                                 <div class="btn-buy-profile">
                                     <a href="">Beli</a>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -264,7 +243,7 @@
                                 <div class="btn-buy-profile">
                                     <a href="detail_produk.html">Beli</a>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -289,7 +268,7 @@
                                 <div class="btn-buy-profile">
                                     <a href="">Beli</a>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -314,7 +293,7 @@
                                 <div class="btn-buy-profile">
                                     <a href="">Beli</a>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -339,56 +318,17 @@
                                 <div class="btn-buy-profile">
                                     <a href="">Beli</a>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-    <footer>
-        <hr>
-        <div class="container">
-            <div class="row mt-5">
-                <div class="col-12 col-sm-12 col-md-6 col-lg-5">
-                    <img src="asset/img/logo.png" width="150px" alt="">
-                    <div class="mt-3 desk">
-                        <p>Marketplace jual beli beras langsung dari para petani</p>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-2">
-                    <h6>For Beginner</h6>
-                    <div class="sub-footer">
-                        <p><a href="#">New Account</a></p>
-                        <p><a href="#">Payment</a></p>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-2">
-                    <h6>Explore Us</h6>
-                    <div class="sub-footer">
-                        <p><a href="#">About</a></p>
-                        <p><a href="#">Privacy Policy</a></p>
-                        <p><a href="#">Term & Conditions</a></p>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-2">
-                    <h6>Geeting Touch</h6>
-                    <div class="sub-footer">
-                        <p><a href="#">supportproducttani.id</a></p>
-                        <p><a href="#">021-111-1423</a></p>
-                        <p><a href="#">Product Tani, Tobadak</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="text-center copyright">
-                <p>Copyright 2022 • All right reversed • Product Tani</p>
-            </div>
-        </div>
-    </footer>
-    <script src="asset/bootstrap/js/bootstrap.min.js"></script>
-    <script src="asset/aos/js/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
+    <?php
+    require './views/footer.php';
+    require './views/script.php';
+    ?>
 </body>
+
 </html>

@@ -418,7 +418,7 @@ footer .copyright{
 
 /* Step 1 */
 .step-bar{
-    margin-top: 100px;
+    margin-top: 80px;
 }
 @media (max-width:576px){
     .img-check{
@@ -437,7 +437,7 @@ footer .copyright{
     }
 }
 .step-1 .card-product{
-    margin-top: 80px;
+    margin-top: 60px;
     box-shadow: 1px 1px 10px rgba(9, 130, 75, 0.2);
     border-radius: 6px;
     padding-top: 25px;
@@ -535,7 +535,7 @@ footer .copyright{
     background-color: #fcbb58;
 }
 .step-2 .card-product{
-    margin-top: 80px;
+    margin-top: 60px;
     box-shadow: 1px 1px 10px rgba(9, 130, 75, 0.2);
     border-radius: 6px;
     padding-top: 25px;
@@ -547,7 +547,8 @@ footer .copyright{
 /* Step 2 */
 
 .step-2 .btn-finish-step-2{
-    margin-top: 35px;
+    margin-top: 34px;
+        margin-bottom: 50px;
 }
 .step-2 .btn-finish-step-2 a{
     text-decoration: none;
@@ -661,18 +662,19 @@ footer .copyright{
     font-weight: 200;
     margin-bottom: 30px;
 }
-.background-login main .card-login a{
-    text-decoration: none;
+.background-login main .card-login .btn-signin{
+    border: none;
     color: white;
     background-color: #09824B;
     display: block;
+    width: 100%;
     padding: 12px 0px;
     border-radius: 5px;
     font-size: 16px !important;    
     box-shadow: 1px 1px 10px #09824B;
     transition: 0.5s all;
 }
-.background-login main .card-login a:hover{
+.background-login main .card-login .btn-signin:hover{
     background-color: #32a572;
 }
 .background-login main .card-login .btn-sign-in{
@@ -690,7 +692,8 @@ footer .copyright{
     display: block;
     border: 2px solid #C4C4C4;
     border-radius: 5px;
-    font-weight: 300;
+    font-weight: 400;
+        color: #04351F;
     width: 100%;
 }
 .background-login main .link-signup{
@@ -727,23 +730,24 @@ footer .copyright{
     font-weight: 200;
     margin-bottom: 30px;
 }
-.background-register main .card-login a{
-    text-decoration: none;
+.background-register main .card-login .btn-signup{
+    border: none;
     color: white;
-    background-color: #09824B;
     display: block;
+    width: 100%;
+    background-color: #09824B;
     padding: 12px 0px;
     border-radius: 5px;
     font-size: 16px !important;    
     box-shadow: 1px 1px 10px #09824B;
     transition: 0.5s all;
 }
-.background-register main .card-login a:hover{
+.background-register main .card-login .btn-signup:hover{
     background-color: #32a572;
 }
 .background-register main .card-login .btn-sign-in{
     padding-bottom: 50px;
-    padding-top: 40px;
+    padding-top: 20px;
 }
 .background-register .card-login .input-login h5{
     color: #04351F;
@@ -756,7 +760,8 @@ footer .copyright{
     display: block;
     border: 2px solid #C4C4C4;
     border-radius: 5px;
-    font-weight: 300;
+    font-weight: 400;
+        color: #04351F;
     width: 100%;
 }
 .background-register main .link-signup{
@@ -767,4 +772,56 @@ footer .copyright{
  text-decoration: none;
  color: #04351F;
  font-weight: 500;
+}
+
+/* Foto profil */
+.circleFotoProfil {
+    width: 120px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.circleFotoProfil:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 100%;
+}
+
+.circleFotoProfil>img {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.circleFotoProfil>img.tallAndNarrow {
+    width: 100%;
+    top: 50%;
+    transform: translateX(0) translateY(-50%);
+    left: 0;
+    height: auto;
+}
+
+.circleFotoProfil>img.loaded {
+    opacity: 1;
+}
+
+.btn-logout{
+    background-color: #C4C4C4;
+    color: white;
+    padding: 12px 63px;
+    border-radius: 4px;
+    transition: 0.5s all;
+    border: none;
+}
+.btn-logout:hover{
+    background-color: #a5a5a5;
 }
