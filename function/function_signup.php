@@ -9,7 +9,7 @@ function signup($data)
     $password = $data['password'];
     $jenis_kelamin = $data['jenis_kelamin'];
     $password_hash = password_hash($password, PASSWORD_DEFAULT);
-    $query = "INSERT INTO data_pembeli VALUES('$username','$fullname','$jenis_kelamin','0','','','','$password_hash','')";
+    $query = "INSERT INTO data_pembeli VALUES('$username','$fullname','$jenis_kelamin','0','','','','$password_hash','Belum')";
     mysqli_query($conn, $query);
     return mysqli_affected_rows($conn);
 }

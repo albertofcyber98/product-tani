@@ -14,8 +14,14 @@ function update_profil($data)
     $password = $data['password'];
     $hash_password = password_hash($password, PASSWORD_DEFAULT);
     $foto_lama = $data['fileLama'];
+
+    $cek_foto = mysqli_query($conn, "SELECT*FROM data_pembeli WHERE username='$username'");
+    $foto_cek = mysqli_fetch_assoc($cek_foto);
+    
     if ($_FILES['foto']['error'] === 4) {
         $foto = $foto_lama;
+    } else if ($foto_cek['foto'] == "") {
+        $foto = upload_foto();
     } else {
         $foto = upload_foto();
         unlink("img/$foto_lama");
