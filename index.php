@@ -1,5 +1,15 @@
 <?php
 session_start();
+require './function/function_global.php';
+$datas = query_data("SELECT data_produk.id as id, 
+data_produk.nama_produk as nama_produk,
+data_produk.foto as foto,
+data_produk.harga_produk as harga_produk,
+data_penjual.nama as nama,
+data_penjual.foto as foto_penjual 
+FROM data_produk INNER JOIN data_penjual 
+ON data_produk.username_penjual = data_penjual.username 
+WHERE data_produk.stok_produk>0 LIMIT 4");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,106 +85,39 @@ session_start();
                 <p class="text-center">“Berbagai jenis beras dengan harga relatif murah”</p>
             </div>
             <div class="row justify-content-center">
-                <div class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card-product mb-3" data-aos="zoom-in-up" data-aos-duration="1000">
-                        <img src="asset/img/product (1).png" class="w-100 img-fluid px-3 pt-3" alt="">
-                        <div class="px-3">
-                            <h4>Beras Rojolele</h4>
-                            <h6>Rp 16.000/kg</h6>
-                        </div>
-                        <hr>
-                        <div class="row px-3 profile-product pb-2">
-                            <div class="col d-flex">
-                                <div>
-                                    <img src="asset/img/profile (1).png" width="40px" alt="">
-                                </div>
-                                <div>
-                                    <p>Isma</p>
-                                </div>
+                <?php
+                foreach ($datas as $data) :
+                ?>
+                    <div class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card-product mb-3" data-aos="zoom-in-up" data-aos-duration="1000">
+                            <div class="mx-3 pt-3">
+                                <img src="./penjual/img/<?= $data['foto'] ?>" class="w-100 img-rounded" alt="">
                             </div>
-                            <div class="col-4 justify-content-center">
-                                <div class="btn-buy-profile">
-                                    <a href="">Beli</a>
-                                </div>
+                            <div class="px-3">
+                                <h4><?= $data['nama_produk'] ?></h4>
+                                <h6><?= format_rupiah($data['harga_produk']) ?>/kg</h6>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card-product mb-3" data-aos="zoom-in-up" data-aos-duration="1000">
-                        <img src="asset/img/product (2).png" class="w-100 img-fluid px-3 pt-3" alt="">
-                        <div class="px-3">
-                            <h4>Beras Pandanwangi</h4>
-                            <h6>Rp 11.000/kg</h6>
-                        </div>
-                        <hr>
-                        <div class="row px-3 profile-product pb-2">
-                            <div class="col d-flex">
-                                <div>
-                                    <img src="asset/img/profile (2).png" width="40px" alt="">
+                            <hr>
+                            <div class="row px-3 profile-product pb-2">
+                                <div class="col d-flex">
+                                    <div class="foto-penjual">
+                                        <img src="./penjual/img/<?= $data['foto_penjual'] ?>" alt="" onload="fixAspect(this);">
+                                    </div>
+                                    <div>
+                                        <p><?= $data['nama'] ?></p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p>M.Yusuf</p>
-                                </div>
-                            </div>
-                            <div class="col-4 col-lg2 justify-content-center">
-                                <div class="btn-buy-profile">
-                                    <a href="">Beli</a>
+                                <div class="col-4 justify-content-center">
+                                    <div class="btn-buy-profile">
+                                        <a href="detail_produk.php?id=<?= $data['id'] ?>">Beli</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card-product mb-3" data-aos="zoom-in-up" data-aos-duration="1000">
-                        <img src="asset/img/product (3).png" class="w-100 img-fluid px-3 pt-3" alt="">
-                        <div class="px-3">
-                            <h4>Beras IR64</h4>
-                            <h6>Rp 9.000/kg</h6>
-                        </div>
-                        <hr>
-                        <div class="row px-3 profile-product pb-2">
-                            <div class="col d-flex">
-                                <div>
-                                    <img src="asset/img/profile (3).png" width="40px" alt="">
-                                </div>
-                                <div>
-                                    <p>Suryono</p>
-                                </div>
-                            </div>
-                            <div class="col-4 col-lg2 justify-content-center">
-                                <div class="btn-buy-profile">
-                                    <a href="">Beli</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-3">
-                    <div class="card-product mb-3" data-aos="zoom-in-up" data-aos-duration="1000">
-                        <img src="asset/img/product (4).png" class="w-100 img-fluid px-3 pt-3" alt="">
-                        <div class="px-3">
-                            <h4>Beras Solok</h4>
-                            <h6>Rp 16.000/kg</h6>
-                        </div>
-                        <hr>
-                        <div class="row px-3 profile-product pb-2">
-                            <div class="col d-flex">
-                                <div>
-                                    <img src="asset/img/profile (4).png" width="40px" alt="">
-                                </div>
-                                <div>
-                                    <p>Supono</p>
-                                </div>
-                            </div>
-                            <div class="col-4 col-lg2 justify-content-center">
-                                <div class="btn-buy-profile">
-                                    <a href="">Beli</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                endforeach;
+                ?>
             </div>
             <div class="text-center btn-lainnya" data-aos="zoom-in-up" data-aos-duration="2000">
                 <a href="">Lainnya</a>

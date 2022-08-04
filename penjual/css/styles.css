@@ -474,6 +474,45 @@ aside #toggle-navbar {
 .table-responsive table thead tr th{
   font-weight: 400;
 }
+/* Foto profil */
+.circleFotoProfil {
+  width: 120px;
+  position: relative;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.circleFotoProfil:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 100%;
+}
+
+.circleFotoProfil>img {
+  position: absolute;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 0;
+  right: 0;
+  margin: 0 auto;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.circleFotoProfil>img.tallAndNarrow {
+  width: 100%;
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+  left: 0;
+  height: auto;
+}
+
+.circleFotoProfil>img.loaded {
+  opacity: 1;
+}
 
 .btn-entry-data button{
   color: white;
@@ -492,14 +531,44 @@ aside #toggle-navbar {
 }
 .modal-custom .btn-modal{
     text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
-.modal-custom .btn-modal .add{
+.modal-custom .btn-modal button{
     border: none;
+    color: white;
     padding: 8px 30px;
     background-color: #09824B;
     border-radius: 4px;
     transition: 0.5s all;
     box-shadow: 1px 1px 10px #09824B;
+    font-weight: 300;
 }
+.modal-custom .btn-modal button:hover{
+    background-color: #32a572;
+}
+.btn-update-table{
+    background-color: #FAC213;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    transition: all 0.5s;
+    color: white;
+}
+.btn-delete-table{
+    border: none;
+    border-radius: 5px;
+    padding: 5px 15px;
+    transition: all 0.5s;
+    color: white;
+    background-color: #D61C4E;
+}
+.btn-update-table:hover{
+    background-color: #fbd050;
+}
+.btn-delete-table:hover{
+    background-color: #d3486d;
+}
+
 
 

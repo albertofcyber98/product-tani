@@ -1,3 +1,29 @@
+<?php
+$id_produk = $_GET['id'];
+session_start();
+require './function/function_global.php';
+$query_data = mysqli_query($conn, "SELECT data_produk.id as id, 
+data_produk.nama_produk as nama_produk,
+data_produk.foto as foto,
+data_produk.harga_produk as harga_produk,
+data_produk.deskripsi_produk as deskripsi_produk,
+data_produk.stok_produk as stok_produk,
+data_penjual.nama as nama,
+data_penjual.foto as foto_penjual 
+FROM data_produk INNER JOIN data_penjual 
+ON data_produk.username_penjual = data_penjual.username WHERE data_produk.id=$id_produk");
+$result = mysqli_fetch_assoc($query_data);
+
+$datas = query_data("SELECT data_produk.id as id, 
+data_produk.nama_produk as nama_produk,
+data_produk.foto as foto,
+data_produk.harga_produk as harga_produk,
+data_penjual.nama as nama,
+data_penjual.foto as foto_penjual 
+FROM data_produk INNER JOIN data_penjual 
+ON data_produk.username_penjual = data_penjual.username 
+WHERE data_produk.stok_produk>0 AND data_produk.id != $id_produk LIMIT 4");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,23 +48,17 @@
             </div>
         </section>
         <section class="detail-product">
-            <h1 class="title" data-aos="zoom-in-up" data-aos-duration="1000">Beras Rojolele</h1>
+            <h1 class="title" data-aos="zoom-in-up" data-aos-duration="1000"><?= $result['nama_produk'] ?></h1>
             <div class="row mt-4 justify-content-center justify-content-md-center justify-content-xl-start">
                 <div class="col-12 col-sm-10 col-md-8 col-lg-6 col-xl-5 offset-xl-1">
                     <div class="card-product mb-4" data-aos="zoom-in-up" data-aos-duration="1000">
                         <div class="px-3 pt-3">
-                            <img src="asset/img/product (1).png" alt="" class="img-fluid w-100">
+                            <img src="./penjual/img/<?= $result['foto'] ?>" alt="" class="img-fluid w-100 img-rounded">
                         </div>
                         <div class="deskripsi-product px-3">
-                            <h6>Deskripsi Beras Rojolele</h6>
+                            <h6>Deskripsi <?= $result['nama_produk'] ?></h6>
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,
-                                molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum
-                                numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium
-                                optio, eaque rerum! Provident similique accusantium nemo autem. Veritatis
-                                obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
-                                nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
-                                tenetur error, harum nesciunt ipsum debitis quas aliquid.
+                                <?= $result['deskripsi_produk'] ?>
                             </p>
                         </div>
                     </div>
@@ -47,27 +67,29 @@
                     <div class="card-product" data-aos="zoom-in-up" data-aos-duration="1000">
                         <div class="mx-4 detail-checkout">
                             <h4>Start Checkout</h4>
-                            <p>Stock: <span class="stock">18 kg</span></p>
-                            <h3><span class="price">Rp. 15.000</span> / kg</h3>
+                            <p>Stock: <span class="stock"><?= $result['stok_produk'] ?> kg</span></p>
+                            <h3><span class="price"><?= format_rupiah($result['harga_produk']) ?></span> / kg</h3>
                             <p class="quest">Berapa kg yang ingin kamu beli ?</p>
                             <div class="d-flex">
                                 <button class="btn-minus" onclick="dec()">-</button>
                                 <input type="text" placeholder="1" name="jumlah" id="jumlah">
                                 <button class="btn-plus" onclick="inc()">+</button>
                             </div>
-                            <p class="mt-4">Sub total harga <span class="sub-total" id="subTotal">Rp. 15.000 / 1 kg</span></p>
+                            <p class="mt-4">Sub total harga <span class="sub-total" id="subTotal">Rp. 12.000 / 1 kg</span></p>
                             <p class="note">Note: Sub total belum termasuk ongkir</p>
                             <div class="btn-checkout-margin">
                                 <a href="checkout_step_1.php" class="btn-checkout-detail">Checkout</a>
                             </div>
                         </div>
                         <hr class="hr-checkout">
-                        <div class="mx-4 d-flex pb-4 profile-checkout">
-                            <div>
-                                <img src="asset/img/profile (2).png" alt="">
-                            </div>
-                            <div>
-                                <p>M. Yusuf</p>
+                        <div class="row mx-3 pb-4 profile-checkout">
+                            <div class="col d-flex">
+                                <div class="foto-penjual">
+                                    <img src="./penjual/img/<?= $result['foto_penjual'] ?>" alt="" onload="fixAspect(this);">
+                                </div>
+                                <div>
+                                    <p><?= $result['nama'] ?></p>
+                                </div>
                             </div>
                         </div>
                     </div>

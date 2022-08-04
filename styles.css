@@ -101,6 +101,9 @@ header div a:hover{
     box-shadow: 1px 1px 10px rgba(9, 130, 75, 0.2);
     border-radius: 6px;
 }
+.product .card-product .img-rounded{
+    border-radius: 6px;
+}
 .product .card-product h4{
     padding-top: 20px;
     font-size: 22px;
@@ -121,11 +124,11 @@ header div a:hover{
     font-weight: 500;
     color: #04351F;
 }
-.product .profile-product .btn-buy-profile{
-    text-align: end;
-    margin-top: 10px;
+.product .btn-buy-profile{
+    text-align: right;
+    margin-top: 9px;
 }
-.product .profile-product .btn-buy-profile a{
+.product .btn-buy-profile a{
     text-decoration: none;
     color: white;
     background-color: #FEA319;
@@ -133,7 +136,7 @@ header div a:hover{
     border-radius: 3px;
     transition: 0.5s all;
 }
-.product .profile-product .btn-buy-profile a:hover{
+.product .btn-buy-profile a:hover{
     background-color: #fcbb58;
 }
 .product .btn-lainnya{
@@ -262,6 +265,9 @@ footer .copyright{
 .detail-product .card-product{
     box-shadow: 1px 1px 10px rgba(9, 130, 75, 0.2);
     border-radius: 8px;
+}
+.detail-product .card-product .img-rounded{
+    border-radius: 6px;
 }
 .detail-product .deskripsi-product{
     margin-top: 20px;
@@ -824,4 +830,43 @@ footer .copyright{
 }
 .btn-logout:hover{
     background-color: #a5a5a5;
+}
+.foto-penjual {
+    width: 40px;
+    height: 40px;
+    position: relative;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.foto-penjual:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 100%;
+}
+
+.foto-penjual>img {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.foto-penjual>img.tallAndNarrow {
+    width: 100%;
+    top: 50%;
+    transform: translateX(0) translateY(-50%);
+    left: 0;
+    height: auto;
+}
+
+.foto-penjual>img.loaded {
+    opacity: 1;
 }

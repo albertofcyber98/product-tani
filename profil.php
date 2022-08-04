@@ -47,7 +47,7 @@ if (isset($_POST['logout'])) {
                         echo 'img/' . $result['foto'];
                     }
                     ?>
-                    " alt="" onload="fixAspect(this);" class=" img-profile-page">
+                    " alt="" onload="fixAspect(this);">
                 </div>
                 <!-- <div>
                     <img src="asset/img/img-camera.png" alt="" width="120px" class="position-absolute top-50 start-50 translate-middle img-camera">

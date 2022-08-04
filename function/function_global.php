@@ -1,5 +1,15 @@
 <?php
 require './function/function_connection.php';
+function query_data($data)
+{
+    global $conn;
+    $result = mysqli_query($conn, $data);
+    $rows = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $rows[] = $row;
+    }
+    return $rows;
+}
 function upload_foto()
 {
     // return false;
@@ -45,4 +55,33 @@ function upload_foto()
     $namaFileBaru .= $ekstensiFile;
     move_uploaded_file($tmpName, 'img/' . $namaFileBaru);
     return $namaFileBaru;
+}
+function format_tanggal($tanggal)
+{
+    $bulan = array(
+        1 =>   'Januari',
+        'Februari',
+        'Maret',
+        'April',
+        'Mei',
+        'Juni',
+        'Juli',
+        'Agustus',
+        'September',
+        'Oktober',
+        'November',
+        'Desember'
+    );
+    $pecahkan = explode('-', $tanggal);
+
+    // variabel pecahkan 0 = tanggal
+    // variabel pecahkan 1 = bulan
+    // variabel pecahkan 2 = tahun
+
+    return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+}
+function format_rupiah($angka)
+{
+    $hasil_rupiah = "Rp. " . number_format($angka, 0, '', '.');
+    return $hasil_rupiah;
 }

@@ -1,4 +1,6 @@
-<script>
+<script type="text/javascript">
+    var harga_produk = '<?= $result['harga_produk'] ?>'
+    var stock_produk = '<?= $result['stok_produk'] ?>'
     let a = 1;
     const sub_total = document.getElementById("subTotal");
 
@@ -12,9 +14,11 @@
     function inc() {
         let jumlah = document.getElementById("jumlah");
         jumlah.value = a;
-        a++;
+        if (a < stock_produk) {
+            a++;
+        }
         jumlah.value = a;
-        let angka = a * 15000;
+        let angka = a * harga_produk;
         sub_total.innerHTML = "Rp. " + rubah(angka) + "/ " + a + " Kg";
     }
 
@@ -25,7 +29,7 @@
             a--;
         }
         jumlah.value = a;
-        let angka = a * 15000;
+        let angka = a * harga_produk;
         sub_total.innerHTML = "Rp. " + rubah(angka) + "/ " + a + " Kg";
     }
 </script>
