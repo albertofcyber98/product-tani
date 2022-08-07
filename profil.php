@@ -15,6 +15,8 @@ if (isset($_POST['logout'])) {
     session_destroy();
     header('Location: signin.php');
 }
+
+$transaksis = query_data("SELECT*FROM data_transaksi WHERE username_pembeli='$username'");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -130,28 +132,44 @@ if (isset($_POST['logout'])) {
                                     <th class="text-center">No</th>
                                     <th>Produk</th>
                                     <th>Jumlah</th>
-                                    <th>Total Harga</th>
+                                    <th>Sub Total</th>
+                                    <th>Kode Unik</th>
+                                    <th>Total</th>
                                     <th>Status</th>
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="text-center">1</td>
-                                    <td>Beras Pandawangi</td>
-                                    <td>5 kg</td>
-                                    <td>Rp. 283.000</td>
-                                    <td>Pengiriman</td>
-                                    <td>Diterima</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">1</td>
-                                    <td>Beras Pandawangi</td>
-                                    <td>5 kg</td>
-                                    <td>Rp. 283.000</td>
-                                    <td>Pengiriman</td>
-                                    <td>Diterima</td>
-                                </tr>
+                                <?php
+                                $no = 1;
+                                foreach ($transaksis as $transaksi) :
+                                ?>
+                                    <tr>
+                                        <td class="text-center"><?= $no ?></td>
+                                        <td><?= $transaksi['nama_produk'] ?></td>
+                                        <td><?= $transaksi['jumlah_produk'] ?> kg</td>
+                                        <td><?= format_rupiah($transaksi['sub_total']) ?></td>
+                                        <td><?= $transaksi['kode_unik'] ?></td>
+                                        <td><?= format_rupiah($transaksi['sub_total'] + $transaksi['kode_unik']) ?></td>
+                                        <td><?= $transaksi['status'] ?></td>
+                                        <td>
+                                            <?php
+                                            if ($transaksi['status'] === 'Pending') {
+                                            ?>
+                                                <a href="checkout_step_1.php?invoice=<?= $transaksi['id_transaksi'] ?>" class="btn btn-sm btn-primary text-white">Update</a>
+                                            <?php
+                                            } else if ($transaksi['status'] === 'Proses') {
+                                            ?>
+                                                <a disabled class="btn btn-sm btn-secondary text-white">Proses</a>
+                                            <?php
+                                            }
+                                            ?>
+                                        </td>
+                                    </tr>
+                                <?php
+                                    $no++;
+                                endforeach;
+                                ?>
                             </tbody>
                         </table>
                     </div>

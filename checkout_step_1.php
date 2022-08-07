@@ -1,3 +1,21 @@
+<?php
+require './function/function_global.php';
+$invoice = $_GET['invoice'];
+$queryKeranjang = mysqli_query(
+    $conn,
+    "SELECT data_transaksi.nama_produk as nama_produk, 
+    data_transaksi.sub_total as sub_total,
+    data_transaksi.kode_unik as kode_unik,
+    data_transaksi.jumlah_produk as jumlah_produk,
+    data_penjual.nama_bank as nama_bank,
+    data_penjual.nama_akun_bank as nama_akun_bank,
+    data_penjual.no_rekening as no_rekening
+    FROM data_transaksi INNER JOIN data_penjual 
+    ON data_transaksi.username_penjual=data_penjual.username 
+    WHERE data_transaksi.id_transaksi='$invoice'"
+);
+$resultKeranjang = mysqli_fetch_assoc($queryKeranjang);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,18 +45,18 @@
         <section class="row justify-content-center">
             <div class="col-10 col-sm-10 col-md-8 col-lg-6 col-xl-5 ">
                 <div class="card-product" data-aos="zoom-in-up" data-aos-duration="1000">
-                    <h1 class="title-transaksi">TRX-20220525</h1>
+                    <h1 class="title-transaksi"><?= $invoice ?></h1>
                     <div class="row">
                         <div class="col">
                             <div>
-                                <h2 class="title-product">Rojo Lele</h2>
+                                <h2 class="title-product"><?= $resultKeranjang['nama_produk'] ?></h2>
                             </div>
                             <div>
-                                <h3 class="quantity-product">3 kg</h3>
+                                <h3 class="quantity-product"><?= $resultKeranjang['jumlah_produk'] ?> kg</h3>
                             </div>
                         </div>
                         <div class="col align-self-center">
-                            <h2 class="sub-total">Rp. 350.000</h2>
+                            <h2 class="sub-total"><?= format_rupiah($resultKeranjang['sub_total']) ?></h2>
                         </div>
                     </div>
                     <div class="row mt-3">
@@ -46,7 +64,7 @@
                             <h3 class="title-kode-unik">Kode Unik</h3>
                         </div>
                         <div class="col">
-                            <h4 class="kode-unik">315</h4>
+                            <h4 class="kode-unik"><?= $resultKeranjang['kode_unik'] ?></h4>
                         </div>
                     </div>
                     <hr>
@@ -60,7 +78,7 @@
                             </div>
                         </div>
                         <div class="col align-self-center">
-                            <h5 class="total-price">Rp. 350.315</h5>
+                            <h5 class="total-price"><?= format_rupiah($resultKeranjang['sub_total'] + $resultKeranjang['kode_unik']) ?></h5>
                         </div>
                     </div>
                     <div class="rekening d-flex">
@@ -68,8 +86,8 @@
                             <img src="asset/img/icon_bank.png" width="40px" alt="">
                         </div>
                         <div class="desk-rekening">
-                            <h6 class="nama-penjual">M. Ardi</h6>
-                            <p class="rek-penjual">BRI - 0291302103921</p>
+                            <h6 class="nama-penjual"><?= $resultKeranjang['nama_akun_bank'] ?></h6>
+                            <p class="rek-penjual"><?= $resultKeranjang['nama_bank'] ?> - <?= $resultKeranjang['no_rekening'] ?></p>
                         </div>
                     </div>
                 </div>
@@ -81,7 +99,7 @@
                     </div>
                     <div class="col">
                         <div class="btn-paid-step-1 text-center">
-                            <a href="checkout_step_2.php">Paid</a>
+                            <a href="checkout_step_2.php?invoice=<?= $invoice ?>">Paid</a>
                         </div>
                     </div>
                 </div>

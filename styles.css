@@ -310,7 +310,9 @@ footer .copyright{
 .detail-product .detail-checkout .btn-minus{
     background-color: #C4C4C4;
     padding: 6px 14px;
-    border: none;
+    text-decoration: none;
+    transition: all 0.5s;
+    cursor: pointer;
     border-radius: 4px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
     color: white;
@@ -321,7 +323,9 @@ footer .copyright{
 .detail-product .detail-checkout .btn-plus{
     background-color: #09824B;
     padding: 6px 14px;
-    border: none;
+    text-decoration: none;
+    transition: all 0.5s;
+    cursor: pointer;
     border-radius: 4px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
     color: white;
@@ -354,6 +358,7 @@ footer .copyright{
     border-radius: 3px;
     box-shadow: 1px 1px 10px #fcbb58;
     transition: 0.5s all;
+    border: none;
 }
 .detail-product .detail-checkout .btn-checkout-detail:hover{
     background-color: #fcbb58;
@@ -556,8 +561,8 @@ footer .copyright{
     margin-top: 34px;
         margin-bottom: 50px;
 }
-.step-2 .btn-finish-step-2 a{
-    text-decoration: none;
+.step-2 .btn-finish-step-2 button{
+    border: none;
     color: white;
     background-color: #FEA319;
     padding: 12px 70px;
@@ -566,7 +571,7 @@ footer .copyright{
     border-radius: 4px;
     transition: 0.5s all;
 }
-.step-2 .btn-finish-step-2 a:hover{
+.step-2 .btn-finish-step-2 button:hover{
     background-color: #fcbb58;
 }
 

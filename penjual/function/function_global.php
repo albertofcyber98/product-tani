@@ -64,3 +64,8 @@ function data_penjual($data)
     $result = mysqli_fetch_assoc($data);
     return $result;
 }
+function format_rupiah($angka)
+{
+    $hasil_rupiah = "Rp. " . number_format($angka, 0, '', '.');
+    return $hasil_rupiah;
+}

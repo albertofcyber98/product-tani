@@ -1,7 +1,9 @@
 <?php
 $id_produk = $_GET['id'];
 session_start();
+$username_pembeli = $_SESSION['username'];
 require './function/function_global.php';
+require './function/function_checkout.php';
 $query_data = mysqli_query($conn, "SELECT data_produk.id as id, 
 data_produk.nama_produk as nama_produk,
 data_produk.foto as foto,
@@ -9,6 +11,7 @@ data_produk.harga_produk as harga_produk,
 data_produk.deskripsi_produk as deskripsi_produk,
 data_produk.stok_produk as stok_produk,
 data_penjual.nama as nama,
+data_produk.username_penjual as username_penjual,
 data_penjual.foto as foto_penjual 
 FROM data_produk INNER JOIN data_penjual 
 ON data_produk.username_penjual = data_penjual.username WHERE data_produk.id=$id_produk");
@@ -66,20 +69,25 @@ WHERE data_produk.stok_produk>0 AND data_produk.id != $id_produk LIMIT 4");
                 <div class="col-12 col-sm-10 col-md-8 col-lg-5 col-xl-4">
                     <div class="card-product" data-aos="zoom-in-up" data-aos-duration="1000">
                         <div class="mx-4 detail-checkout">
-                            <h4>Start Checkout</h4>
-                            <p>Stock: <span class="stock"><?= $result['stok_produk'] ?> kg</span></p>
-                            <h3><span class="price"><?= format_rupiah($result['harga_produk']) ?></span> / kg</h3>
-                            <p class="quest">Berapa kg yang ingin kamu beli ?</p>
-                            <div class="d-flex">
-                                <button class="btn-minus" onclick="dec()">-</button>
-                                <input type="text" placeholder="1" name="jumlah" id="jumlah">
-                                <button class="btn-plus" onclick="inc()">+</button>
-                            </div>
-                            <p class="mt-4">Sub total harga <span class="sub-total" id="subTotal">Rp. 12.000 / 1 kg</span></p>
-                            <p class="note">Note: Sub total belum termasuk ongkir</p>
-                            <div class="btn-checkout-margin">
-                                <a href="checkout_step_1.php" class="btn-checkout-detail">Checkout</a>
-                            </div>
+                            <form action="" method="post">
+                                <input type="hidden" name="id_produk" value="<?= $id_produk ?>">
+                                <input type="hidden" name="username_pembeli" value="<?= $username_pembeli ?>">
+                                <input type="hidden" name="username_penjual" value="<?= $result['username_penjual'] ?>">
+                                <h4>Start Checkout</h4>
+                                <p>Stock: <span class="stock"><?= $result['stok_produk'] ?> kg</span></p>
+                                <h3><span class="price"><?= format_rupiah($result['harga_produk']) ?></span> / kg</h3>
+                                <p class="quest">Berapa kg yang ingin kamu beli ?</p>
+                                <div class="d-flex">
+                                    <a class="btn-minus" onclick="dec()">-</a>
+                                    <input type="text" placeholder="0" onchange="getJumlah(this.value)" name="jumlah" id="jumlah">
+                                    <a class="btn-plus" onclick="inc()">+</a>
+                                </div>
+                                <p class="mt-4">Sub total harga <span class="sub-total" id="subTotal">Rp. 0 / 0 kg</span></p>
+                                <p class="note">Note: Sub total belum termasuk ongkir</p>
+                                <div class="btn-checkout-margin">
+                                    <button type="submit" name="checkout" class="btn-checkout-detail">Checkout</button>
+                                </div>
+                            </form>
                         </div>
                         <hr class="hr-checkout">
                         <div class="row mx-3 pb-4 profile-checkout">
@@ -205,6 +213,44 @@ WHERE data_produk.stok_produk>0 AND data_produk.id != $id_produk LIMIT 4");
     <?php
     require './views/footer.php';
     require './views/script.php';
+    if (isset($_POST['checkout'])) {
+        $resultReturn = add_checkout($_POST);
+        if ($resultReturn[0] > 0) {
+            echo '
+                <script type="text/javascript">
+                    swal({
+                        title: "Berhasil",
+                        text: "Berhasil Checkout",
+                        icon: "success",
+                        showConfirmButton: true,
+                    }).then(function(isConfirm){
+                        if(isConfirm){
+                            window.location.replace("checkout_step_1.php?invoice=' . $resultReturn[1] . '");
+                        }else{
+                            //if no clicked => do something else
+                        }
+                    });
+                </script>
+            ';
+        } else {
+            echo '
+                <script type="text/javascript">
+                    swal({
+                        title: "Gagal",
+                        text: "Gagal Checkout",
+                        icon: "error",
+                        showConfirmButton: true,
+                    }).then(function(isConfirm){
+                        if(isConfirm){
+                            window.location.replace("detail_checkout.php?id=' . $id_produk . '");
+                        }else{
+                            //if no clicked => do something else
+                        }
+                    });
+                </script>
+            ';
+        }
+    }
     ?>
 </body>
 
