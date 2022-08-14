@@ -26,7 +26,7 @@ require './function/function_signup.php';
                 <div class="card-login">
                     <h1 class="text-center mb-4">Sign Up Seller</h1>
                     <form action="" method="POST">
-                        <div class="input-login mb-4 mt-3">
+                        <div class="input-login mt-3">
                             <h5>Fullname</h5>
                             <input type="text" name="fullname" placeholder="Enter your fullname">
                         </div>
@@ -54,7 +54,7 @@ require './function/function_signup.php';
                         </div>
                     </form>
                 </div>
-                <p class="text-center link-signup">Already have an account ? <a href="signin.php">Sign in</a> or <a href="signin.php">Sign in a Seller</a></p>
+                <p class="text-center link-signup">Already have an account ? <a href="signin.php">Sign in a seller</a></p>
             </div>
         </div>
     </main>

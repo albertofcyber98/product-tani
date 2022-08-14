@@ -41,7 +41,9 @@ require './function/function_signin.php';
                         </div>
                     </form>
                 </div>
-                <p class="text-center link-signup">Don’t have a account ? <a href="signup.php">Sign up</a> or <a href="./penjual/signup.php">Sign up a Seller</a></p>
+                <p class="text-center link-signup">Don’t have an account ? <a href="signup.php">Sign up</a></p>
+                <p class="text-center">Create an account seller ? <a href="./penjual/signup.php">Sign up seller</a></p>
+                <p class="text-center">Have an account seller ? <a href="./penjual/signin.php">Sign in seller</a></p>
             </div>
         </div>
     </main>

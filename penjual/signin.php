@@ -39,7 +39,7 @@ require './function/function_signin.php';
                         </div>
                     </form>
                 </div>
-                <p class="text-center link-signup">Don’t have a account ? <a href="signup.php">Sign up</a> or <a href="signup.php">Sign up a Seller</a></p>
+                <p class="text-center link-signup">Don’t have a account ? <a href="signup.php">Sign up a Seller</a></p>
             </div>
         </div>
     </main>

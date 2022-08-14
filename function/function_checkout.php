@@ -9,7 +9,7 @@ function add_checkout($data)
     $kodeTransaksi = $dataTransaksi['kodeTerbesar'];
     $urutan = (int) substr($kodeTransaksi, 3, 3);
     $urutan++;
-    $huruf = "BRS-";
+    $huruf = "BRS";
     $invoice = $huruf . sprintf("%03s", $urutan);
     $id_produk = $data['id_produk'];
     $queryProduk = mysqli_query($conn, "SELECT*FROM data_produk WHERE id='$id_produk'");
@@ -38,7 +38,7 @@ function add_pembayaran($data)
     $alamat = $detail_alamat . ', ' . $desa;
     mysqli_query($conn, "UPDATE data_transaksi SET 
     alamat='$alamat', 
-    no_telpon=$no_telpon,
+    no_telpon='$no_telpon',
     nama_pengirim='$nama_pengirim',
     status='Proses',
     bukti_pembayaran='$bukti_transfer' WHERE id_transaksi='$invoice'");

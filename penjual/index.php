@@ -45,16 +45,12 @@ $result = data_penjual($_SESSION['username']);
             ?>
             <div class="content">
                 <div class="row">
-                    <div class="col-12">
-                        <h2 class="content-title">Statistics</h2>
-                        <h5 class="content-desc mb-4">Your team powers</h5>
-                    </div>
                     <div class="col-12 col-md-6 col-lg-4">
                         <div class="statistics-card simple">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex flex-column justify-content-around align-items-start employee-stat">
-                                    <h5 class="content-desc">In Total</h5>
-                                    <h3 class="statistics-value">425,000</h3>
+                                    <h5 class="content-desc">Produk</h5>
+                                    <h3 class="statistics-value">1</h3>
                                 </div>
                             </div>
                         </div>
@@ -63,8 +59,8 @@ $result = data_penjual($_SESSION['username']);
                         <div class="statistics-card simple">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex flex-column justify-content-around align-items-start employee-stat">
-                                    <h5 class="content-desc">Active</h5>
-                                    <h3 class="statistics-value">205,399</h3>
+                                    <h5 class="content-desc">Transaksi pending</h5>
+                                    <h3 class="statistics-value">1</h3>
                                 </div>
                             </div>
                         </div>
@@ -73,8 +69,18 @@ $result = data_penjual($_SESSION['username']);
                         <div class="statistics-card simple">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="d-flex flex-column justify-content-around align-items-start employee-stat">
-                                    <h5 class="content-desc">Inactive</h5>
-                                    <h3 class="statistics-value">142,593</h3>
+                                    <h5 class="content-desc">Transaksi verif</h5>
+                                    <h3 class="statistics-value">0</h3>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6 col-lg-4">
+                        <div class="statistics-card simple">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="d-flex flex-column justify-content-around align-items-start employee-stat">
+                                    <h5 class="content-desc">Pengiriman</h5>
+                                    <h3 class="statistics-value">2</h3>
                                 </div>
                             </div>
                         </div>

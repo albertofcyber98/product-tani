@@ -13,17 +13,6 @@
 
 <body class="container">
     <main class="step-3">
-        <section class="step-bar d-flex">
-            <div class="row mx-auto">
-                <div>
-                    <img src="asset/img/check.png" class="img-check" alt="">
-                    <img src="asset/img/line.png" class="img-line" alt="">
-                    <img src="asset/img/check.png" class="img-check" alt="">
-                    <img src="asset/img/line.png" class="img-line" alt="">
-                    <img src="asset/img/check.png" class="img-check" alt="">
-                </div>
-            </div>
-        </section>
         <section class="row justify-content-center">
             <div class="col-10 col-sm-10 col-md-8 col-lg-6 col-xl-5 ">
                 <section class="text-center">

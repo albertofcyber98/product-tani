@@ -1,8 +1,11 @@
 <?php
 $id_produk = $_GET['id'];
 session_start();
-$username_pembeli = $_SESSION['username'];
-require './function/function_global.php';
+if (!isset($_SESSION['username'])) {
+    $username_pembeli = '';
+} else {
+    $username_pembeli = $_SESSION['username'];
+}
 require './function/function_checkout.php';
 $query_data = mysqli_query($conn, "SELECT data_produk.id as id, 
 data_produk.nama_produk as nama_produk,
@@ -85,7 +88,17 @@ WHERE data_produk.stok_produk>0 AND data_produk.id != $id_produk LIMIT 4");
                                 <p class="mt-4">Sub total harga <span class="sub-total" id="subTotal">Rp. 0 / 0 kg</span></p>
                                 <p class="note">Note: Sub total belum termasuk ongkir</p>
                                 <div class="btn-checkout-margin">
-                                    <button type="submit" name="checkout" class="btn-checkout-detail">Checkout</button>
+                                    <?php
+                                    if (!isset($_SESSION['username'])) {
+                                    ?>
+                                        <a href="signin.php" class="btn-login-checkout">Login</a>
+                                    <?php
+                                    } else {
+                                    ?>
+                                        <button type="submit" name="checkout" class="btn-checkout-detail">Checkout</button>
+                                    <?php
+                                    }
+                                    ?>
                                 </div>
                             </form>
                         </div>
@@ -107,106 +120,39 @@ WHERE data_produk.stok_produk>0 AND data_produk.id != $id_produk LIMIT 4");
         <section class="detail-product-lain">
             <h1 data-aos="zoom-in-up" data-aos-duration="1000">Produk Lainnya</h1>
             <div class="row justify-content-center mt-4">
-                <div class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-2">
-                    <div class="card-product mb-3" data-aos="zoom-in-up" data-aos-duration="1000">
-                        <img src="asset/img/product (1).png" class="w-100 img-fluid px-3 pt-3" alt="">
-                        <div class="px-3">
-                            <h4>Beras Rojolele</h4>
-                            <h6>Rp 16.000/kg</h6>
-                        </div>
-                        <hr>
-                        <div class="row px-3 profile-product pb-2">
-                            <div class="col d-flex">
-                                <div>
-                                    <img src="asset/img/profile (1).png" width="40px" alt="">
-                                </div>
-                                <div>
-                                    <p>Isma</p>
-                                </div>
+                <?php
+                foreach ($datas as $data) :
+                ?>
+                    <div class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card-product mb-3" data-aos="zoom-in-up" data-aos-duration="1000">
+                            <div class="mx-3 pt-3">
+                                <img src="./penjual/img/<?= $data['foto'] ?>" class="w-100 img-rounded" alt="">
                             </div>
-                            <div class="col-4 col-lg2 justify-content-center">
-                                <div class="btn-buy-profile">
-                                    <a href="">Beli</a>
-                                </div>
+                            <div class="px-3">
+                                <h4><?= $data['nama_produk'] ?></h4>
+                                <h6><?= format_rupiah($data['harga_produk']) ?>/kg</h6>
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-2">
-                    <div class="card-product mb-3" data-aos="zoom-in-up" data-aos-duration="1000">
-                        <img src="asset/img/product (2).png" class="w-100 img-fluid px-3 pt-3" alt="">
-                        <div class="px-3">
-                            <h4>Beras Pandanwangi</h4>
-                            <h6>Rp 11.000/kg</h6>
-                        </div>
-                        <hr>
-                        <div class="row px-3 profile-product pb-2">
-                            <div class="col d-flex">
-                                <div>
-                                    <img src="asset/img/profile (2).png" width="40px" alt="">
+                            <hr>
+                            <div class="row px-3 profile-product pb-2">
+                                <div class="col d-flex">
+                                    <div class="foto-penjual">
+                                        <img src="./penjual/img/<?= $data['foto_penjual'] ?>" alt="" onload="fixAspect(this);">
+                                    </div>
+                                    <div>
+                                        <p><?= $data['nama'] ?></p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p>M.Yusuf</p>
-                                </div>
-                            </div>
-                            <div class="col-4 col-lg2 justify-content-center">
-                                <div class="btn-buy-profile">
-                                    <a href="">Beli</a>
+                                <div class="col-4 justify-content-center">
+                                    <div class="btn-buy-profile">
+                                        <a href="detail_produk.php?id=<?= $data['id'] ?>">Beli</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-2">
-                    <div class="card-product mb-3" data-aos="zoom-in-up" data-aos-duration="1000">
-                        <img src="asset/img/product (3).png" class="w-100 img-fluid px-3 pt-3" alt="">
-                        <div class="px-3">
-                            <h4>Beras IR64</h4>
-                            <h6>Rp 9.000/kg</h6>
-                        </div>
-                        <hr>
-                        <div class="row px-3 profile-product pb-2">
-                            <div class="col d-flex">
-                                <div>
-                                    <img src="asset/img/profile (3).png" width="40px" alt="">
-                                </div>
-                                <div>
-                                    <p>Suryono</p>
-                                </div>
-                            </div>
-                            <div class="col-4 col-lg2 justify-content-center">
-                                <div class="btn-buy-profile">
-                                    <a href="">Beli</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-8 col-sm-6 col-md-6 col-lg-4 col-xl-3 mb-2">
-                    <div class="card-product mb-3" data-aos="zoom-in-up" data-aos-duration="1000">
-                        <img src="asset/img/product (4).png" class="w-100 img-fluid px-3 pt-3" alt="">
-                        <div class="px-3">
-                            <h4>Beras Solok</h4>
-                            <h6>Rp 16.000/kg</h6>
-                        </div>
-                        <hr>
-                        <div class="row px-3 profile-product pb-2">
-                            <div class="col d-flex">
-                                <div>
-                                    <img src="asset/img/profile (4).png" width="40px" alt="">
-                                </div>
-                                <div>
-                                    <p>Supono</p>
-                                </div>
-                            </div>
-                            <div class="col-4 col-lg2 justify-content-center">
-                                <div class="btn-buy-profile">
-                                    <a href="">Beli</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <?php
+                endforeach;
+                ?>
             </div>
         </section>
     </main>
@@ -225,7 +171,7 @@ WHERE data_produk.stok_produk>0 AND data_produk.id != $id_produk LIMIT 4");
                         showConfirmButton: true,
                     }).then(function(isConfirm){
                         if(isConfirm){
-                            window.location.replace("checkout_step_1.php?invoice=' . $resultReturn[1] . '");
+                            window.location.replace("checkout.php?invoice=' . $resultReturn[1] . '");
                         }else{
                             //if no clicked => do something else
                         }

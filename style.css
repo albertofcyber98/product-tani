@@ -352,7 +352,6 @@ footer .copyright{
 }
 .detail-product .detail-checkout .btn-checkout-detail{
     background-color: #FEA319;
-    text-decoration: none;
     color: white;
     padding: 14px 45px;
     border-radius: 3px;
@@ -361,6 +360,19 @@ footer .copyright{
     border: none;
 }
 .detail-product .detail-checkout .btn-checkout-detail:hover{
+    background-color: #fcbb58;
+}
+.detail-product .detail-checkout .btn-login-checkout{
+    text-decoration: none;
+    color: white;
+    padding: 14px 45px;
+    border-radius: 3px;
+    background-color: #FEA319;
+    box-shadow: 1px 1px 10px #fcbb58;
+    cursor: pointer;
+    transition: 0.5s all;
+}
+.detail-product .detail-checkout .btn-login-checkout:hover{
     background-color: #fcbb58;
 }
 .detail-product .detail-checkout .btn-checkout-margin{
@@ -519,31 +531,32 @@ footer .copyright{
     color: #C4C4C4;
     margin-top: -9px;
 }
-.step-1 .btn-cancel-step-1 a{
-    text-decoration: none;
+.step-1 .btn-cancel-step-1 button{
+    border: none;
     color: white;
     background-color: #C4C4C4;
     padding: 12px;
     font-size: 15px;
     border-radius: 4px;
-    display: block;
+    width: 100%;
     transition: 0.5s all;
 }
-.step-1 .btn-cancel-step-1 a:hover{
+.step-1 .btn-cancel-step-1 button:hover{
     background-color: #e5e5e5;
 }
-.step-1 .btn-paid-step-1 a{
-    text-decoration: none;
+.step-1 .btn-paid-step-1 button{
+    border: none;
     color: white;
     background-color: #FEA319;
-    padding: 12px;
     font-size: 15px;
     border-radius: 4px;
-    display: block;
+    padding: 12px;
+    width: 100%;
     transition: 0.5s all;
 }
-.step-1 .btn-paid-step-1 a:hover{
+.step-1 .btn-paid-step-1 button:hover{
     background-color: #fcbb58;
+    color: white;
 }
 .step-2 .card-product{
     margin-top: 60px;

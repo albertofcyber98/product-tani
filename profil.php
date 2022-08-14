@@ -16,7 +16,7 @@ if (isset($_POST['logout'])) {
     header('Location: signin.php');
 }
 
-$transaksis = query_data("SELECT*FROM data_transaksi WHERE username_pembeli='$username'");
+$transaksis = query_data("SELECT*FROM data_transaksi  WHERE username_pembeli='$username' ORDER BY id_transaksi DESC");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -156,15 +156,53 @@ $transaksis = query_data("SELECT*FROM data_transaksi WHERE username_pembeli='$us
                                             <?php
                                             if ($transaksi['status'] === 'Pending') {
                                             ?>
-                                                <a href="checkout_step_1.php?invoice=<?= $transaksi['id_transaksi'] ?>" class="btn btn-sm btn-primary text-white">Update</a>
+                                                <a href="checkout.php?invoice=<?= $transaksi['id_transaksi'] ?>" class="btn btn-sm btn-primary text-white">Pembayaran</a>
                                             <?php
                                             } else if ($transaksi['status'] === 'Proses') {
                                             ?>
                                                 <a disabled class="btn btn-sm btn-secondary text-white">Proses</a>
                                             <?php
+                                            } else if ($transaksi['status'] === 'Verif') {
+                                            ?>
+                                                <a disabled class="btn btn-sm btn-secondary text-white">Proses</a>
+                                            <?php
+                                            } else if ($transaksi['status'] === 'Pengiriman') {
+                                            ?>
+                                                <button data-bs-toggle="modal" data-bs-target="#modalEdit<?= $transaksi['id_transaksi']; ?>" class="btn btn-sm btn-warning text-white">Terima?</button>
+                                            <?php
+                                            } else if ($transaksi['status'] === 'Diterima') {
+                                            ?>
+                                                <a disabled class="btn btn-sm btn-secondary text-white">Selesai</a>
+                                            <?php
                                             }
                                             ?>
                                         </td>
+                                        <div class="modal fade" id="modalEdit<?= $transaksi['id_transaksi']; ?>" role="dialog">
+                                            <div class="modal-dialog">
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <h5 class="modal-title">Barang diterima ?</h5>
+                                                        <button type="button" data-bs-dismiss="modal" class="btn-close"></button>
+                                                    </div>
+                                                    <div class="modal-body">
+                                                        <form role="form" action="#" method="POST" autocomplete="off">
+                                                            <?php
+                                                            $invoice = $transaksi['id_transaksi'];
+                                                            $edits = query_data("SELECT * FROM data_transaksi WHERE id_transaksi='$invoice'");
+                                                            foreach ($edits as $edit) :
+                                                            ?>
+                                                                <input type="hidden" name="id_transaksi" value="<?= $edit['id_transaksi']; ?>">
+                                                                <p>Telah menerima barang ?</p>
+                                                                <div class="flex text-center mt-4 mb-3">
+                                                                    <button type="button" class="btn btn-secondary mr-2" data-bs-dismiss="modal">Batal</button>
+                                                                    <button type="submit" name="terima" class="btn btn-primary ml-2">Terima</button>
+                                                                </div>
+                                                            <?php endforeach ?>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </tr>
                                 <?php
                                     $no++;
@@ -204,6 +242,43 @@ $transaksis = query_data("SELECT*FROM data_transaksi WHERE username_pembeli='$us
                     swal({
                         title: "Gagal",
                         text: "Gagal update profil",
+                        icon: "error",
+                        showConfirmButton: true,
+                    }).then(function(isConfirm){
+                        if(isConfirm){
+                            window.location.replace("profil.php");
+                        }else{
+                            //if no clicked => do something else
+                        }
+                    });
+                </script>
+            ';
+        }
+    }
+    if (isset($_POST['terima'])) {
+        if (update_terima($_POST) > 0) {
+            echo '
+                <script type="text/javascript">
+                    swal({
+                        title: "Berhasil",
+                        text: "Barang telah diterima",
+                        icon: "success",
+                        showConfirmButton: true,
+                    }).then(function(isConfirm){
+                        if(isConfirm){
+                            window.location.replace("profil.php");
+                        }else{
+                            //if no clicked => do something else
+                        }
+                    });
+                </script>
+            ';
+        } else {
+            echo '
+                <script type="text/javascript">
+                    swal({
+                        title: "Gagal",
+                        text: "Gagal diterima",
                         icon: "error",
                         showConfirmButton: true,
                     }).then(function(isConfirm){

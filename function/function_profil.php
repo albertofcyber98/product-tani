@@ -33,7 +33,7 @@ function update_profil($data)
             nama='$fullname',
             email='$email',
             jenis_kelamin='$jenis_kelamin',
-            nomor_hp=$nomor_hp,
+            nomor_hp='$nomor_hp',
             alamat='$alamat',
             password='$hash_password',
             foto='$foto' WHERE username='$username'"
@@ -76,4 +76,11 @@ function update_profil($data)
         return mysqli_affected_rows($conn);
     }
     // return mysqli_affected_rows($conn);
+}
+function update_terima($data)
+{
+    global $conn;
+    $invoice = $data['id_transaksi'];
+    mysqli_query($conn, "UPDATE data_transaksi SET status='Diterima' WHERE id_transaksi='$invoice'");
+    return mysqli_affected_rows($conn);
 }

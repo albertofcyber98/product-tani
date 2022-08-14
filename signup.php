@@ -55,7 +55,7 @@ require './function/function_signup.php';
                         </div>
                     </form>
                 </div>
-                <p class="text-center link-signup">Already have an account ? <a href="signin.php">Sign in</a> or <a href="./penjual/signin.php">Sign in a Seller</a></p>
+                <p class="text-center link-signup">Already have an account ? <a href="signin.php">Sign in</a></p>
             </div>
         </div>
     </main>
